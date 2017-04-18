@@ -66,8 +66,9 @@ def gen_metadata():
     # write tsv file
     with open(os.path.join(LOGDIR, METADATA_FILE), 'w') as file:
         file.write('Name\tId\tType\tMana cost\tAttack\tHealth\tDurability\tBattlecry\tDeathrattle\tSpelldamage\tStealth'
-                   '\tTaunt\tCharge\tWindfury\tOverload\tInspire\tDiscard\tCombo\tRace\tSecret\tRarity\tClass\tCard set\tText\n')
-        # TODO: add Jade, Handbuff, more info to spells, discard...
+                   '\tTaunt\tCharge\tWindfury\tOverload\tInspire\tDiscard\tJade'
+                   '\tCombo\tRace\tSecret\tRarity\tClass\tCard set\tText\n')
+        # TODO: Handbuff, more info to spells
         for card in cards_sorted:
             # add features to list
             # type, cost, attack, health, durability, battlecry, deathrattle, spelldamage, stealth,
@@ -91,6 +92,7 @@ def gen_metadata():
                                   1 if has_mechanics(card, 'Overload') else 0,
                                   1 if has_mechanics(card, 'Inspire') else 0,
                                   1 if 'discard' in check_value(card, 'text', "").lower() else 0,
+                                  1 if 'jade' in check_value(card, 'text', "").lower() else 0,
                                   1 if has_mechanics(card, 'Combo') else 0,
                                   race_list[check_value(card, 'race')],
                                   1 if has_mechanics(card, 'Secret') else 0,
