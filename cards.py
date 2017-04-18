@@ -71,7 +71,6 @@ def gen_metadata():
                    '\tCombo\tRace\tSecret\tRarity\tClass\tCard set\tText\n')
         # TODO: Handbuff, more info to spells
         for card in cards_sorted:
-
             type_list = defaultdict(lambda: -1, dict(Minion=0, Spell=1, Weapon=2))
             race_list = defaultdict(lambda: -1, dict(Beast=0, Dragon=1, Pirate=2, Totem=3, Demon=4, Elemental=5,
                                                      Mech=6, Murlock=7))
@@ -111,7 +110,8 @@ def gen_metadata():
             # write labels to file
             file.write(
                 "{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}\t{10}\t{11}\t{12}\t{13}\t{14}\t{15}\t{16}\t{17}\t{18}"
-                "\t{19}\t{20}\t{21}\t{22}\t{23}\t{24}\t{25}\t{26}\t{27}\t{28}\t{29}\t{30}\t{31}\t{32}\t{33}\n"
+                "\t{19}\t{20}\t{21}\t{22}\t{23}\t{24}\t{25}\t{26}\t{27}\t{28}\t{29}\t{30}\t{31}\t{32}\t{33}\t{34}\t{35}"
+                "\n"
                     .format(check_value(card, 'name'),
                             check_value(card, 'cardId'),
                             check_value(card, 'type'),
